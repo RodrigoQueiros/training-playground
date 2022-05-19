@@ -5,5 +5,29 @@ pipeline {
 		}
 	}
     stages {
+    	stage('In Sequential') {
+                stages {
+		    stage('Sequential 1') {
+		    agent { 
+    			docker { 
+    				image 'node:6.3' 
+			} 
+		}
+                    steps {
+                        sh 'npm --version'
+                    }}
+		    stage('Sequential 2') {
+		    agent { 
+    			docker { 
+    				image 'maven:3.3.3' 
+		} 
+		}
+                    steps {
+                        sh 'mvn --version'
+                    }
+                }
+		    }
+		}
+        }
     }
 }
