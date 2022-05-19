@@ -5,5 +5,23 @@ pipeline {
 		}
 	}
     stages {
+    	stage('build') {
+            steps {
+		saveDate("test")
+            }
+        }
+	stage('test') {
+            steps {
+		testDate("2019")
+            }
+        }
     }
+}
+
+def saveDate(filename = '') {
+	sh "date > $filename"
+}
+
+def testDate(date = '') {
+	sh "grep $date test.txt"
 }
