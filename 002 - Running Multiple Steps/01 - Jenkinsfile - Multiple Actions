@@ -7,12 +7,22 @@ pipeline {
     stages {
     	stage('build') {
             steps {
-                sh 'cat /etc/alpine-release'
-		
-		sh 'cat NewFile.txt > date'
+		sh 'date > result.txt'
 		sh 'sleep 10s'
-		sh 'cat NewFile.txt
+		sh 'date >> result.txt'
+		sh 'cat result.txt'
+            }
+        }
+	stage('build2') {
+            steps {
+		saveAndPrintDate("test")
+		sh "sleep 10s"
+		saveAndPrintDate("test2")
             }
         }
     }
+}
+
+def saveAndPrintDate(filename = '') {
+	sh "date > $filename && cat $filename"
 }
