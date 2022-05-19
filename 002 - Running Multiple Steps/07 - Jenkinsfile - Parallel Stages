@@ -5,5 +5,19 @@ pipeline {
 		}
 	}
     stages {
+    	stage('Parallel Stage') {
+            parallel {
+                stage('Node') {
+                    steps {
+                        sh 'npm --version'
+                    }
+                }
+                stage('MVN') {
+                    steps {
+                        sh 'mvn --version'
+                    }
+                }
+    	    }
+    	}
     }
 }
