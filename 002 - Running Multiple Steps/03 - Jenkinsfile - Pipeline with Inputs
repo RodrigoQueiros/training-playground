@@ -12,16 +12,20 @@ pipeline {
                     string(name: 'NAME', defaultValue: '', description: '')
                 }
             }
+
+            steps {  
+                echo "$NAME"
+            }
+        }
+	stage('build2') {
 	    input {
-                message "Please enter the age"
+		message "Please enter the age"
                 parameters {
                     string(name: 'AGE', defaultValue: '', description: '')
                 }
             }
-            steps {
-	    
-	    
-                echo "$NAME"
+
+            steps {               
                 echo "$AGE"
             }
         }
