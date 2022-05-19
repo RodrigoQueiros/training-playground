@@ -10,9 +10,7 @@ pipeline {
     stages {
     	stage('build') {
 	    when {
-	    	expression { 
-                   return ${params.CHOICE}  == 'build'
-                }
+	    	environment name: 'choice', value: 'build'
             }
             steps {
 		echo 'build'
@@ -20,9 +18,7 @@ pipeline {
         }
 	stage('test') {
 	    when {
-                expression { 
-                   return ${params.CHOICE}  == 'test'
-                }
+                environment name: 'choice', value: 'test'
             }
 	    steps {
 		echo 'test'
