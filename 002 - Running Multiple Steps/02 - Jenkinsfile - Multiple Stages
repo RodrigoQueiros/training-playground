@@ -7,7 +7,7 @@ pipeline {
     stages {
     	stage('build') {
             steps {
-		saveDate("test")
+		saveDate("test.txt")
             }
         }
 	stage('test') {
