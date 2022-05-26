@@ -6,6 +6,9 @@ pipeline {
 	}
     stages {
         stage('build') {
+	    environment {
+	    	NOTIFICATION_EMAIL = "rodrigo.lopo.queiros@celfocus.com"	    
+	    }
             steps {
                 echo "$NOTIFICATION_EMAIL"
             }
