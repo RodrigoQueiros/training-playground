@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-	    	sh "apk update && apk-get install curl"
+	    	sh "apk --no-cache add curl"
                 sh "curl www.google.com"
             }
         }
