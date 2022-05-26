@@ -6,18 +6,8 @@ pipeline {
 	}
     stages {
         stage('build') {
-	    environment {
-	    	BUILD_CONFIGS = '''
-			[{
-				name: "Java",
-				command: "echo 'Java Command'"
-			},
-			{
-				name: "Node",
-				command: "echo 'Node Command'"
-			}
-			]
-		'''
+	    script {
+	    	def buildConfigs = readJSON text: '[{name: "dev", command: "date"}, {name: "prod", command: "hostname"}]'
 	    }
             steps {
                 script {
