@@ -6,6 +6,19 @@ pipeline {
 	}
     stages {
         stage('build') {
+	    environment {
+	    	BUILD_CONFIGS = '''
+			[{
+				name: "Java",
+				command: "echo 'Java Command'"
+			},
+			{
+				name: "Node",
+				command: "echo 'Node Command'"
+			}
+			]
+		'''
+	    }
             steps {
                 script {
                 	def buildConfigs = []
