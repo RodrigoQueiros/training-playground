@@ -7,7 +7,7 @@ pipeline {
         stage('mvn') {
             agent {
                 dockerfile {
-		            filename '04 - Dockerfile - Install Software Dockerfile Maven'
+		    filename '04 - Dockerfile - Install Software Dockerfile Maven'
                     dir '003 - Defining Execution Environments'
                 }
             }
@@ -19,7 +19,7 @@ pipeline {
         stage('npm') {
             agent {
                 dockerfile {
-		            filename '04 - Dockerfile - Install Software Dockerfile Node'
+		    filename '04 - Dockerfile - Install Software Dockerfile Node'
                     dir '003 - Defining Execution Environments'
                 }
             }
