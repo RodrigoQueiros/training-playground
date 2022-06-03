@@ -6,14 +6,6 @@
 	<artifactId>java-app</artifactId>
 	<version>1.0.0</version>
 	
-	<distributionManagement>
-    	<repository>
-    	<id>maven-releases</id>
-	<name>Maven-Releases</name>
-    	<url>http://nexus:8081/repository/maven-releases/</url>
-    	</repository>
-  	</distributionManagement>
-	
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -22,21 +14,7 @@
 		</dependency>
 	</dependencies>
 	
-	<build>
-    	<plugins>
-      	<plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.3</version>
-        <extensions>true</extensions>
-        <configuration>
-              <serverId>maven-releases</serverId>
-          <nexusUrl>http://3.124.164.63:8082/repository/maven-releases/</nexusUrl>
-          <!-- update this to the correct id! -->
-          <!--<stagingProfileId>1296f79efe04a4d0</stagingProfileId>-->
-        </configuration>
-      	</plugin>
-    	</plugins>
+	
 		
 		
   </build>
