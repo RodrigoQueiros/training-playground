@@ -16,9 +16,7 @@ pipeline {
         }
 	stage('nexus') {
             steps {
-                // sh 'mvn -s settings.xml -f "./" deploy'
-		
-		sh 'mvn deploy -DaltDeploymentRepository=file:./'
+                sh 'mvn -s settings.xml -f deploy'
             }
         }
     }
