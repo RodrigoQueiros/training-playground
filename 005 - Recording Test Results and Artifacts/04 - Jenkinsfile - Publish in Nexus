@@ -16,7 +16,11 @@ pipeline {
         }
 	stage('nexus') {
             steps {
-                sh 'mvn -s settings.xml -f "/var/jenkins_home/workspace/usr3_workspace/005 - Recording Test Results and Artifacts/04 - Jenkinsfile - Publish in Nexus" deploy'
+	    	configFileProvider(
+                [configFile(fileId: 'mvn-settings',
+                    targetLocation: 'settings.xml')]) {
+                sh 'mvn -s settings.xml deploy'
+		}
             }
         }
     }
