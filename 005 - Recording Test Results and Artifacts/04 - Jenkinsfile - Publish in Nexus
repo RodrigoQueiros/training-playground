@@ -19,7 +19,10 @@ pipeline {
 	    	configFileProvider(
                 [configFile(fileId: 'mvn-settings',
                     targetLocation: 'settings.xml')]) {
-                sh 'mvn -s settings.xml -f "005 - Recording Test Results and Artifacts/04 - Publish in Nexus" deploy'
+                sh 'mvn -s settings.xml -f '005 - Recording Test Results and Artifacts/04 - Publish in Nexus' \
+		-Dfile='005 - Recording Test Results and Artifacts/04 - Publish in Nexus/target/java-app-1.0.0.jar' \
+		-Durl='http://3.124.164.63:8082/repository/maven-releases/' \
+		deploy"
 		}
             }
         }
