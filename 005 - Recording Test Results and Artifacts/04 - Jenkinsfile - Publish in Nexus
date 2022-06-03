@@ -5,7 +5,12 @@ pipeline {
 		}
 	}
     stages {
-        stage('tests') {
+        stage('build') {
+            steps {
+                sh "mvn clean install"
+            }
+        }
+	stage('nexus') {
             steps {
                 sh ""
             }
